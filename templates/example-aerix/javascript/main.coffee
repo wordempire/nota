@@ -18,7 +18,6 @@ requirejs.config {
 # some of them which this template depends on (e.g. Backbone, _)
 # have already been made available by Nota client earlier.
 dependencies = ['bootstrap', 'view', 'model']
-
 define 'template', dependencies, (InvoiceView, InvoiceModel)->
 
   Nota.trigger 'template:init'

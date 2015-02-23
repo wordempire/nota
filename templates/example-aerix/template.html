@@ -6,11 +6,13 @@
 
   <link rel="stylesheet" href="stylesheets/styles.css" media="all">
   <link rel="stylesheet" href="stylesheets/print.css" media="print">
-  <!-- Make sure you load the Nota client by including this tag in your template-->
+  
+  <!-- Starting Nota client, and then the template app -->
   <script src="/vendor/requirejs/require.js" data-main="/lib/client-config"></script>
+  <!--<script src="/vendor/requirejs/require.js" data-main="/javascript/main"></script>-->
 
 	<!-- Please read the Nota README.md on how to turn this into a PDF or preview it -->
-<head>
+</head>
 <body>
 	<img id="logo" src="images/aerix-logo.svg" />
 	<div class="company-info">
@@ -65,7 +67,7 @@
 			<span data-pluralize="item-count">
 				<span data-pluralize="1">dienst</span>
 				<span data-pluralize="+">diensten</span>
-			</span>:
+			</span>
 		</p>
 		<table>
 			<colgroup>
@@ -76,7 +78,7 @@
 			</colgroup>
 
 			<thead>
-				<tr><th colspan="4"><span class="project-name">Project name</span>:</th></tr>
+				<tr><th colspan="4" class="project-name">Project name</th></tr>
 				<tr class="table-meta">
 					<th>Dienst</th>
 					<th>Prijs</th>

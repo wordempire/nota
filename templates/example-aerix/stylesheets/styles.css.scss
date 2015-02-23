@@ -88,6 +88,8 @@ div#invoice-body {
 	clear: both;
 	margin: 0 15mm 0 21mm;
 
+	$borderSubtle: transparentize($textColor, 0.5);
+	$borderStrong: $textColor;
 	table {
 		width: 100%;
 		margin-bottom: 1cm;
@@ -107,12 +109,13 @@ div#invoice-body {
 			}
 		}
 		th.project-name {
+			text-align: center;
 			height: 2em;
 			border-bottom: 2px solid $textColor !important;
 		}
 		tr.table-meta {
 			height: 2em;
-			border-bottom: 1px solid transparentize($textColor, 0.5);
+			border-bottom: 1px solid $borderSubtle;
 			th {
 				text-align: left;
 			}
@@ -136,7 +139,7 @@ div#invoice-body {
 		  vertical-align: middle;
 		}
 		tfoot {
-			border-top: 1px solid transparentize($textColor, 0.5);
+			border-top: 1px solid $borderSubtle;
 			tr:first-child {
 				height: 2em;
 				vertical-align: bottom;;

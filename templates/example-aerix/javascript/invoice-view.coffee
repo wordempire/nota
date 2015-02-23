@@ -20,8 +20,8 @@ define ['nota-client', 'underscore.string'], (Nota, s)->
         "#{@getFullID()}_#{customer}.pdf"
 
     documentMeta: ->
-      'id': @getFullID()
-      'documentName': @documentName()
+      'id':             @getFullID()
+      'documentName':   @documentName()
       'filesystemName': @filesystemName()
 
     getFullID: ->

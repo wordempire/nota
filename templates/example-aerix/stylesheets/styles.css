@@ -78,6 +78,7 @@ div#invoice-body {
       width: 15%;
       text-align: right; }
     div#invoice-body table th.project-name {
+      text-align: center;
       height: 2em;
       border-bottom: 2px solid #1A2C33 !important; }
     div#invoice-body table tr.table-meta {
