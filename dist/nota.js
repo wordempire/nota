@@ -1,5 +1,5 @@
 (function() {
-  var Nota, NotaHelper, NotaServer, chalk, fs, nomnom, notifier, open, path, _,
+  var Nota, NotaHelper, NotaServer, chalk, fs, main, nomnom, notifier, open, path, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   nomnom = require('nomnom');
@@ -23,11 +23,11 @@
   NotaHelper = require('./helper');
 
   Nota = (function() {
-    Nota.prototype.defaults = JSON.parse(fs.readFileSync('config-default.json', 'utf8'));
+    Nota.prototype.defaults = JSON.parse(fs.readFileSync('conf/config-default.json', 'utf8'));
 
-    Nota.prototype.meta = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+    Nota.prototype.meta = JSON.parse(fs.readFileSync('conf/package.json', 'utf8'));
 
-    function Nota() {
+    function Nota(conf) {
       this.listTemplatesIndex = __bind(this.listTemplatesIndex, this);
       var definition, e;
       NotaHelper.on("warning", this.logWarning, this);
@@ -78,7 +78,7 @@
         }
       });
       try {
-        this.options = this.settleOptions(nomnom.nom(), this.defaults);
+        this.options = this.settleOptions(nomnom.nom(conf), this.defaults);
       } catch (_error) {
         e = _error;
         this.logError(e);
@@ -298,6 +298,14 @@
 
   })();
 
-  Nota = new Nota();
+  main = function() {
+    return Nota = new Nota();
+  };
+
+  if (require.main === module) {
+    main();
+  }
+
+  module.exports = Nota;
 
 }).call(this);
