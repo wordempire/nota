@@ -1,4 +1,19 @@
-# Nota
+# Nota ~~New and Improved~~
+## Notable changes
+* main export in `package.json` is now nota, and not server
+* Nota constructor accepts an optional configuration argument, so both argv and function arguments will work now
+
+## Problems
+* Right now, the system spins up an entire server for every pdf request (instead, servers should manage phanomjs instances in a robust and dynamic manner)
+* Port configuration is static => singleton instance, not scalable
+
+## Workarounds/hacks
+1. First install nota as a local npm package (e.g. `npm install ../nota`)
+2. Then, create a `conf` folder by issueing `ln -s node_modules/nota conf`
+3. Link the templates folder: `ln -s node_modules/nota/templates templates`
+4. Do not forget about deps for the templates (`bower install` for the exiting ones)
+
+## Original docs
 <img src="https://dl.dropboxusercontent.com/u/5121848/Nota_demo.png"> Nota
 eats your template (HTML5+CSS3+JS) + your data (JSON) and excretes pretty
 (PDF) documents. Perfect for things like automating invoice or ticket

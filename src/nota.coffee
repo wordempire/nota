@@ -13,13 +13,13 @@ NotaHelper = require('./helper')
 class Nota
 
   # Load the (default) configuration
-  defaults: JSON.parse(fs.readFileSync('config-default.json', 'utf8'))
+  defaults: JSON.parse(fs.readFileSync('conf/config-default.json', 'utf8'))
 
   # Load the package definition so we have some meta data available such as
   # version number.
-  meta: JSON.parse(fs.readFileSync('package.json', 'utf8'))
+  meta: JSON.parse(fs.readFileSync('conf/package.json', 'utf8'))
 
-  constructor: ( ) ->
+  constructor: ( conf ) ->
     NotaHelper.on "warning", @logWarning, @
 
     nomnom.options
@@ -60,7 +60,7 @@ class Nota
         help: 'Prevents overwriting when output path is already occupied'
 
     try
-      @options = @settleOptions nomnom.nom(), @defaults
+      @options = @settleOptions nomnom.nom(conf), @defaults
     catch e
       @logError e
       return
@@ -229,4 +229,9 @@ class Nota
       icon:     path.join(__dirname, '../assets/images/icon.png')
     notifier.notify _.extend base, message
 
-Nota = new Nota()
+main = () ->
+  Nota = new Nota()
+
+main() if require.main is module
+module.exports = Nota
+

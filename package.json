@@ -40,7 +40,7 @@
     "require": "0.5.0",
     "bower-requirejs": "1.1.2"
   },
-  "main": "./dist/server.js",
+  "main": "./dist/nota.js",
   "scripts": {
     "postinstall": "node ./node_modules/bower/bin/bower install"
   }
