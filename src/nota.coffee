@@ -229,4 +229,9 @@ class Nota
       icon:     path.join(__dirname, '../assets/images/icon.png')
     notifier.notify _.extend base, message
 
-Nota = new Nota()
+main = () ->
+  Nota = new Nota()
+
+main() if require.main is module
+module.exports = Nota
+
